@@ -61,7 +61,6 @@ Unknown, related to race start and restoring | 0xDC | 4 | Float?|
 Machine orientation basis, physical | 0xEC | 48 | Float 3D Basis, 3x4 matrix|
 Machine orientation basis, physical target | 0x11C | 48 | Float 3D Basis, 3x4 matrix|
 Machine 3D transform, visual | 0x14C | 48 | Float 3D Transform, 4x4 matrix|
-
 Speed in km/h | 0x17C | 4 | Float|
 Aerial tilt | 0x180 | 4 | Float|
 Energy | 0x184 | 4 | Float | See the [page on Energy](/mechanics/energy.md)
