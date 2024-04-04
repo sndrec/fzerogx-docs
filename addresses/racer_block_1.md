@@ -45,37 +45,23 @@ Machine name | 0x3C | 64? | String|
 Position, center | 0x7C | 12 | Float 3D vector|
 Position, center, 1 frame behind | 0x88 | 12 | Float 3D vector|
 Velocity, world coordinates | 0x94 | 12 | Float 3D vector|
-Unknown; rapidly changing floats ranging in hundreds | 0xA0 | 12 | Float x3|
+Angular velocity, machine coordinates | 0xA0 | 12 | Float 3D vector|
 (Derived) Weight * 3.25 | 0xAC | 4 | Float|
 (Derived) Weight * 2.8125 | 0xB0 | 4 | Float|
 (Derived) Weight * 3.25 | 0xB4 | 4 | Float|
 Velocity, machine coordinates | 0xB8 | 12 | Float 3D vector|
-Unknown, collision related | 0xC4 | 4 | Float|
-Unknown, speed related | 0xC8 | 4 | Float|
+Visual vehicle roll from collisions | 0xC4 | 4 | Float|
+Visual vehicle pitch from speed | 0xC8 | 4 | Float|
 Unknown, might be stability related | 0xCC | 4 | Float|
 | - | 0xD0 | 4 | -
 (Dupe) Velocity, machine coordinates, Z | 0xD4 | 4 | -|
 Max speed in km/h | 0xD8 | 4 | Float|
 Unknown, related to race start and restoring | 0xDC | 4 | Float?|
 | - | 0xE0 | 12 | -
-Machine orientation, world coordinates | 0xEC | 12 | Float 3D vector|
-| - | 0xF8 | 4 | -
-Up vector? | 0xFC | 12 | Float 3D vector|
-| - | 0x108 | 4 | -
-Machine orientation, current gravity coordinates | 0x10C | 12 | Float 3D vector|
-| - | 0x118 | 4 | -
-(Dupe) Machine orientation, world coordinates | 0x11C | 12 | Float 3D vector|
-| - | 0x128 | 4 | -
-(Dupe) Up vector? | 0x12C | 12 | Float 3D vector|
-| - | 0x138 | 4 | -
-(Dupe) Machine orientation, current gravity coordinates | 0x13C | 12 | Float 3D vector|
-| - | 0x148 | 4 | -
-(Dupe) Machine orientation, world coordinates | 0x14C | 12 | Float 3D vector|
-Position, center, vertically oscillating, X | 0x158 | 4 | Float|
-(Dupe) Up vector? | 0x15C | 12 | Float 3D vector|
-Position, center, vertically oscillating, Y | 0x168 | 4 | Float|
-(Dupe) Machine orientation, current gravity coordinates | 0x16C | 12 | Float 3D vector|
-Position, center, vertically oscillating, Z | 0x178 | 4 | Float|
+Machine orientation basis, physical | 0xEC | 48 | Float 3D Basis, 3x4 matrix|
+Machine orientation basis, physical target | 0x11C | 48 | Float 3D Basis, 3x4 matrix|
+Machine 3D transform, visual | 0x14C | 48 | Float 3D Transform, 4x4 matrix|
+
 Speed in km/h | 0x17C | 4 | Float|
 Aerial tilt | 0x180 | 4 | Float|
 Energy | 0x184 | 4 | Float | See the [page on Energy](/mechanics/energy.md)
@@ -87,7 +73,7 @@ Camera effect from boosts | 0x18C | 4 | Float | Credit: superSANIC
 Frame counter from machine crash to restore | 0x194 | 4 | Integer|
 Unknown, stability and out-of-bounds plane related | 0x198 | 36 | Float x9?|
 Track orientation | 0x1BC | 12 | Float 3D vector|
-Unknown, related to ground contact or gravity | 0x1C8 | 4 | Float|
+Something to do with vehicle height from the ground | 0x1C8 | 4 | Float|
 Checkpoint number | 0x1CC | 4 | Integer|
 Fraction of distance to next checkpoint | 0x1D0 | 4 | Float|
 Position, bottom | 0x1D4 | 12 | Float 3D vector|
